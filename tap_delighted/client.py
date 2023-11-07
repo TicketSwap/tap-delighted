@@ -20,4 +20,4 @@ class DelightedStream(Stream):
     
     def __init__(self, tap: Tap):
         super().__init__(tap)
-        delighted.api_key = self.config.get("auth_token")
+        delighted.api_key = self.config.get("api_key")

@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "Meltano-SDK-tap-delighted"
-version = "0.0.1"
+name = "tap-delighted"
+version = "0.1.0"
 description = "`tap-delighted` is a Singer tap for Delighted, built with the Meltano Singer SDK."
 readme = "README.md"
 authors = ["Tobias Cadee <tobias.cadee@ticketswap.com>"]
