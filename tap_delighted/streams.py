@@ -26,7 +26,7 @@ class SurveyResponsesStream(DelightedStream):
     name = "survey_responses"
     primary_keys: t.ClassVar[list[str]] = ["id"]
     replication_key = "updated_at"
-    is_sorted = True
+    is_sorted = False
 
     schema = th.PropertiesList(
         th.Property("id", th.StringType),
