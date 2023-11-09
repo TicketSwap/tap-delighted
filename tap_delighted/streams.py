@@ -23,7 +23,7 @@ SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 class SurveyResponsesStream(DelightedStream):
     """Define custom stream."""
 
-    name = "survey responses"
+    name = "survey_responses"
     primary_keys: t.ClassVar[list[str]] = ["id"]
     replication_key = "updated_at"
     is_sorted = True
