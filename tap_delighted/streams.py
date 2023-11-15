@@ -49,7 +49,11 @@ class SurveyResponsesStream(DelightedStream):
                 th.Property("Delighted Link Name", th.StringType),
                 th.Property("Delighted Device Type", th.StringType),
                 th.Property("Delighted Operating System", th.StringType),
-                th.Property("Delighted Browser", th.StringType)
+                th.Property("Delighted Browser", th.StringType),
+                th.Property("ts_user_id", th.StringType),
+                th.Property("event_id", th.StringType),
+                th.Property("case_id", th.StringType),
+                th.Property("solved_reason", th.StringType)
             )
         )
     ).to_dict()
