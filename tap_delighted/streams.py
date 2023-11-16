@@ -53,7 +53,8 @@ class SurveyResponsesStream(DelightedStream):
                 th.Property("ts_user_id", th.StringType),
                 th.Property("event_id", th.StringType),
                 th.Property("case_id", th.StringType),
-                th.Property("solved_reason", th.StringType)
+                th.Property("solved_reason", th.StringType),
+                th.Property("touchpoint", th.StringType)
             )
         )
     ).to_dict()
