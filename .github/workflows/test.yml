@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      TAP_DELIGHTED_API_KEY_NPS: ${{ secrets.TAP_DELIGHTED_API_KEY_NPS }}
     strategy:
       matrix:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
