@@ -9,7 +9,7 @@ from tap_delighted.tap import TapDelighted
 
 SAMPLE_CONFIG = {
     "start_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d"),
-    "api_key": os.getenv('TAP_DELIGHTED_API_KEY')
+    "api_key": os.getenv('TAP_DELIGHTED_API_KEY_NPS')
 }
 
 
