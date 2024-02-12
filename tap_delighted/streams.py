@@ -8,7 +8,6 @@ from typing import Any, Dict, Optional, Union, List, Iterable
 import delighted
 from datetime import datetime
 import pytz
-timezone = pytz.timezone('America/Chicago')
 
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
