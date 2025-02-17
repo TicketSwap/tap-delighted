@@ -81,6 +81,7 @@ jobs:
           uv pip sync requirements.txt --system
           uv tool install meltano
           uv tool install pytest
+          uv tool install tox
 
       - name: Run Tox
         run: |
