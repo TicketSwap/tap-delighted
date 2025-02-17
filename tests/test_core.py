@@ -17,5 +17,6 @@ TEST_SUITE_CONFIG = SuiteConfig(max_records_limit=100)
 # Run standard built-in tap tests from the SDK:
 TestTapDelighted = get_tap_test_class(
     tap_class=TapDelighted,
+    suite_config=TEST_SUITE_CONFIG,
     config=SAMPLE_CONFIG,
 )
