@@ -77,8 +77,7 @@ jobs:
           uv pip sync requirements.txt --system
           uv tool install meltano
           uv tool install pytest
-          uv tool install tox
 
-      - name: Run Tox
+      - name: Run pytest
         run: |
-          tox -e $(echo py${{ matrix.python-version }} | tr -d .)
+          pytest
