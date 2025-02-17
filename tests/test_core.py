@@ -9,7 +9,7 @@ from tap_delighted.tap import TapDelighted
 
 SAMPLE_CONFIG = {
     "start_date": (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d"),
-    "api_key": os.getenv("TAP_DELIGHTED_API_KEY_NPS"),
+    "api_key": os.environ["TAP_DELIGHTED_API_KEY_NPS"],
 }
 
 TEST_SUITE_CONFIG = SuiteConfig(max_records_limit=100)
