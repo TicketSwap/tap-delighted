@@ -15,6 +15,10 @@ on:
       - tox.ini
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   FORCE_COLOR: 1
 
@@ -52,6 +56,9 @@ jobs:
       fail-fast: false
       matrix:
         python-version:
+          - "3.9"
+          - "3.10"
+          - "3.11"
           - "3.12"
           - "3.13"
     steps:
@@ -72,9 +79,9 @@ jobs:
       - name: Install requirements
         run: |
           uv pip sync requirements.txt --system
-          uv pip install meltano --system
-          uv pip install pytest --system
+          uv tool install meltano
+          uv tool install pytest
 
-      - name: Run pytest
+      - name: Run Tox
         run: |
-          pytest
+          tox -e $(echo py${{ matrix.python-version }} | tr -d .)
