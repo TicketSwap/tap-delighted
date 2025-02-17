@@ -3,20 +3,14 @@
 from __future__ import annotations
 
 import typing as t
-from pathlib import Path
-from typing import Any, Dict, Optional, Union, List, Iterable
-import delighted
 from datetime import datetime
-import pytz
+from typing import Iterable
 
+import delighted
+import pytz
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_delighted.client import DelightedStream
-
-# TODO: Delete this is if not using json files for schema definition
-SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
-# TODO: - Override `UsersStream` and `GroupsStream` with your own stream definition.
-#       - Copy-paste as many times as needed to create multiple stream types.
 
 
 class SurveyResponsesStream(DelightedStream):
@@ -53,33 +47,27 @@ class SurveyResponsesStream(DelightedStream):
                 th.Property("event_id", th.StringType),
                 th.Property("case_id", th.StringType),
                 th.Property("solved_reason", th.StringType),
-                th.Property("touchpoint", th.StringType)
-            )
-        )
+                th.Property("touchpoint", th.StringType),
+            ),
+        ),
     ).to_dict()
-    
-    def get_records(self, context: Optional[dict]) -> Iterable[dict]:
-        """Return a generator of row-type dictionary objects.
-        """
+
+    def get_records(self, context: dict | None) -> Iterable[dict]:
+        """Return a generator of row-type dictionary objects."""
         starting_date = self.get_starting_replication_key_value(context)
-        if type(starting_date) == str:
-            since = datetime.strptime(starting_date, "%Y-%m-%d")
+        if type(starting_date) is str:
+            since = datetime.strptime(starting_date, "%Y-%m-%d")  # noqa: DTZ007
         else:
-            since = datetime.fromtimestamp(starting_date)
+            since = datetime.fromtimestamp(starting_date)  # noqa: DTZ006
         since = since.replace(tzinfo=pytz.UTC)
         response = True
         page = 1
         survey_responses = []
 
         while response:
-            self.logger.info(f'retrieving page {page} of survey responses')
-            response = delighted.SurveyResponse.all(
-                page = page,
-                per_page = 100,
-                since = since
-            )
+            self.logger.info(f"retrieving page {page} of survey responses")  # noqa: G004
+            response = delighted.SurveyResponse.all(page=page, per_page=100, since=since)
             survey_responses.extend(response)
             page += 1
-        
-        for row in survey_responses:
-            yield row
+
+        yield from survey_responses

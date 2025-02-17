@@ -3,21 +3,25 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Callable, Iterable
+from typing import TYPE_CHECKING
 
-import requests
 import delighted
-from singer_sdk.authenticators import APIKeyAuthenticator
-from singer_sdk.tap_base import Tap
 from singer_sdk.streams import Stream
 
-_Auth = Callable[[requests.PreparedRequest], requests.PreparedRequest]
+if TYPE_CHECKING:
+    from singer_sdk.tap_base import Tap
+
 SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
 
 
 class DelightedStream(Stream):
     """Delighted stream class."""
-    
-    def __init__(self, tap: Tap):
+
+    def __init__(self, tap: Tap) -> None:
+        """Initialize the DelightedStream with the given Tap instance.
+
+        Args:
+            tap (Tap): The Tap instance.
+        """
         super().__init__(tap)
         delighted.api_key = self.config.get("api_key")
