@@ -39,7 +39,7 @@ jobs:
       - name: Install requirements
         run: |
           uv pip sync requirements.txt --system
-          uv pip install ruff
+          uv pip install ruff --system
 
       - name: Run Ruff (Linting)
         run: ruff check .
