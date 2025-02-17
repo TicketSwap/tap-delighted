@@ -46,6 +46,8 @@ jobs:
 
   pytest:
     runs-on: ubuntu-latest
+    env:
+      TAP_DELIGHTED_API_KEY_NPS: ${{ secrets.TAP_DELIGHTED_API_KEY_NPS }}
     strategy:
       fail-fast: false
       matrix:
