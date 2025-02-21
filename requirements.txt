@@ -52,7 +52,7 @@ requests==2.32.3
     #   tap-delighted (pyproject.toml)
     #   delighted
     #   singer-sdk
-rpds-py==0.22.3
+rpds-py==0.23.1
     # via
     #   jsonschema
     #   referencing
