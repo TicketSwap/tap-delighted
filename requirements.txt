@@ -18,7 +18,7 @@ delighted==4.1.0
     # via tap-delighted (pyproject.toml)
 fs==2.4.16
     # via singer-sdk
-fsspec==2025.2.0
+fsspec==2025.3.0
     # via singer-sdk
 idna==3.10
     # via requests
