@@ -76,7 +76,7 @@ typing-extensions==4.12.2
     # via
     #   singer-sdk
     #   sqlalchemy
-tzlocal==5.3
+tzlocal==5.3.1
     # via delighted
 urllib3==2.3.0
     # via requests
