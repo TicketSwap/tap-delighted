@@ -8,10 +8,10 @@ on:
     branches: [main]
     paths:
       - .github/workflows/test.yml
-      - tap_dbt_artifacts/**
+      - tap_delighted/**
       - tests/**
       - pyproject.toml
-      - uv.lock
+      - requirements.txt
       - tox.ini
   workflow_dispatch:
 
