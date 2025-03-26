@@ -38,7 +38,7 @@ ply==3.11
     # via jsonpath-ng
 python-dotenv==1.1.0
     # via singer-sdk
-pytz==2025.1
+pytz==2025.2
     # via tap-delighted (pyproject.toml)
 pyyaml==6.0.2
     # via singer-sdk
