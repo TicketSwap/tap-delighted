@@ -11,7 +11,7 @@ keywords = [
     "Delighted",
 ]
 dependencies = [
-    "singer-sdk>=0.33,<0.45",
+    "singer-sdk>=0.33,<0.47",
     "requests>=2.31,<2.33",
     "delighted>=4.1.0,<5",
     "pytz>=2024.1,<2026.0",
